@@ -126,7 +126,7 @@ For plotting maps you will need Cartopy which is not always easy to install - it
 .. code::
 
     sudo apt-get install libproj-dev proj-bin proj-data libgeos-dev
-    subdo pip install cython
+    sudo pip install cython
 
 License = MIT
 --------------
