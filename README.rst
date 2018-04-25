@@ -35,7 +35,7 @@ you would write:
     )
     weblogs, errors = WebLogs.from_nginx_weblogs(logs.split('\n'))
 
-Now ``entries`` is a `Pandas <https://pandas.pydata.org/>`_ dataframe where each row is one server access, with fields such as ``IP``, ``date``, ``referrer``, ``country_name``, etc.
+Now ``weblogs`` is a scpecial kind of `Pandas <https://pandas.pydata.org/>`_ dataframe where each row is one server access, with fields such as ``IP``, ``date``, ``referrer``, ``country_name``, etc.
 
 .. raw:: html
 
@@ -43,7 +43,7 @@ Now ``entries`` is a `Pandas <https://pandas.pydata.org/>`_ dataframe where each
     <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/dataframe_example.png" width="800">
     </p>
 
-The data can be analyzed using Pandas' built-in filtering and plotting functions. For practicality, Lala provides pre-defined methods which are particularly useful to analyse web logs, for instance to plot pie-charts:
+The web logs can therefore be analyzed using any of Pandas' built-in filtering and plotting functions. The ``WebLogs`` class also provides additional methods which are particularly useful to analyse web logs, for instance to plot pie-charts:
 
 .. code:: python
 
