@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lala &mdash; lala 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="lala 0.1.0 documentation" href="#"/>
+        <link rel="next" title="lala Reference manual" href="ref/ref.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> lala
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lala</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ref/ref.html">lala Reference manual</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_example.html">Basic example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/report_example.html">Report example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">lala</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Lala</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <a class="reference internal image-reference" href="_images/logo.png"><img alt="[logo]" class="align-center" src="_images/logo.png" style="width: 200px;" /></a>
+<div class="section" id="lala">
+<h1>Lala<a class="headerlink" href="#lala" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://travis-ci.org/Edinburgh-Genome-Foundry/lala"><img alt="Travis CI build status" src="https://travis-ci.org/Edinburgh-Genome-Foundry/lala.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://coveralls.io/github/Edinburgh-Genome-Foundry/lala?branch=master"><img alt="https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/lala/badge.svg?branch=master" src="https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/lala/badge.svg?branch=master" /></a>
+<p>Lala is a Python library for access log analysis. It provides a set of methods to retrieve, parse and analyze access logs (only from NGINX for now), and makes it easy to plot geo-localization or time-series data. Think of it as a simpler, Python-automatable version of Google Analytics, to make reports like this:</p>
+<a class="reference internal image-reference" href="_images/report1.jpeg"><img alt="[screenshot]" class="align-center" src="_images/report1.jpeg" style="width: 550px;" /></a>
+</div>
+<div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lala</span> <span class="k">import</span> <span class="n">WebLogs</span>
+<span class="n">weblogs</span><span class="p">,</span> <span class="n">errored_lines</span> <span class="o">=</span> <span class="n">WebLogs</span><span class="o">.</span><span class="n">from_nginx_weblogs</span><span class="p">(</span><span class="s1">&#39;access_logs.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similarly, to fetch logs on a distant server (for which you have access keys)
+you would write:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lala</span> <span class="k">import</span> <span class="n">get_remote_file_content</span><span class="p">,</span> <span class="n">WebLogs</span>
+
+<span class="n">logs</span><span class="o">=</span> <span class="n">lala</span><span class="o">.</span><span class="n">get_remote_file_content</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="s2">&quot;cuba.genomefoundry.org&quot;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">,</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;/var/log/nginx_cuba/access.log&#39;</span>
+<span class="p">)</span>
+<span class="n">weblogs</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">WebLogs</span><span class="o">.</span><span class="n">from_nginx_weblogs</span><span class="p">(</span><span class="n">logs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Now <code class="docutils literal"><span class="pre">weblogs</span></code> is a scpecial kind of <a class="reference external" href="https://pandas.pydata.org/">Pandas</a> dataframe where each row is one server access, with fields such as <code class="docutils literal"><span class="pre">IP</span></code>, <code class="docutils literal"><span class="pre">date</span></code>, <code class="docutils literal"><span class="pre">referrer</span></code>, <code class="docutils literal"><span class="pre">country_name</span></code>, etc.</p>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/dataframe_example.png" width="800">
+</p><p>The web logs can therefore be analyzed using any of Pandas’ built-in filtering and plotting functions. The <code class="docutils literal"><span class="pre">WebLogs</span></code> class also provides additional methods which are particularly useful to analyse web logs, for instance to plot pie-charts:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="p">,</span> <span class="n">country_values</span> <span class="o">=</span> <span class="n">weblogs</span><span class="o">.</span><span class="n">plot_piechart</span><span class="p">(</span><span class="s1">&#39;country_name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_piechart.png" width="300">
+</p><p>Next we plot the location (cities) providing the most connexions:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">weblogs</span><span class="o">.</span><span class="n">plot_geo_positions</span><span class="p">()</span>
+</pre></div>
+</div>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_worldmap.png" width="700">
+</p><p>We can also restrict the entries to the UK, and plot a timeline of connexions:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">uk_entries</span> <span class="o">=</span> <span class="n">weblogs</span><span class="p">[</span><span class="n">weblogs</span><span class="o">.</span><span class="n">country_name</span> <span class="o">==</span> <span class="s1">&#39;United Kingdom&#39;</span><span class="p">]</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">uk_entries</span><span class="o">.</span><span class="n">plot_timeline</span><span class="p">(</span><span class="n">bins_per_day</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_timeline.png" width="700">
+</p><p>Here is how to get the visitors a list of visitors and visits, sort out the most frequent visitors, find their locations, and plot it all:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">visitors</span> <span class="o">=</span> <span class="n">weblogs</span><span class="o">.</span><span class="n">visitors_and_visits</span><span class="p">()</span>
+<span class="n">visitors_locations</span> <span class="o">=</span> <span class="n">weblogs</span><span class="o">.</span><span class="n">visitors_locations</span><span class="p">()</span>
+<span class="n">frequent_visitors</span> <span class="o">=</span> <span class="n">weblogs</span><span class="o">.</span><span class="n">most_frequent_visitors</span><span class="p">(</span><span class="n">n_visitors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">weblogs</span><span class="o">.</span><span class="n">plot_most_frequent_visitors</span><span class="p">(</span><span class="n">n_visitors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p align="center">
+<img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_frequent_visitors.png" width="450">
+</p><p>Lala can do more, such as identifying the domain name of the visitors, which can be used to filter out the robots of search engines:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">weblogs</span><span class="o">.</span><span class="n">identify_ips_domains</span><span class="p">()</span>
+<span class="n">filtered_entries</span> <span class="o">=</span> <span class="n">weblogs</span><span class="o">.</span><span class="n">filter_by_text_search</span><span class="p">(</span>
+    <span class="n">terms</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;googlebot&#39;</span><span class="p">,</span> <span class="s1">&#39;spider.yandex&#39;</span><span class="p">,</span> <span class="s1">&#39;baidu&#39;</span><span class="p">,</span> <span class="s1">&#39;msnbot&#39;</span><span class="p">],</span>
+    <span class="n">not_in</span><span class="o">=</span><span class="s1">&#39;domain&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Lala also plays nicely with the <a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/pdf_reports">PDF Reports</a> library to let you define report templates such as <a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/lala/blob/master/examples/data/example_template.pug">this one</a> (written in Pug), and then generate <a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/lala/blob/master/examples/report_example.pdf">this PDF report</a> with the following code:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">weblogs</span><span class="o">.</span><span class="n">write_report</span><span class="p">(</span><span class="n">template_path</span><span class="o">=</span><span class="s2">&quot;path/to/template.pug&quot;</span><span class="p">,</span>
+                     <span class="n">target</span><span class="o">=</span><span class="s2">&quot;report_example.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>You can install lala through PIP</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">lala</span>
+</pre></div>
+</div>
+<p>Alternatively, you can unzip the sources in a folder and type</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>For plotting maps you will need Cartopy which is not always easy to install - it may depend on your system. If you are on Ubuntu 16+, first install the dependencies with :</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libproj</span><span class="o">-</span><span class="n">dev</span> <span class="n">proj</span><span class="o">-</span><span class="nb">bin</span> <span class="n">proj</span><span class="o">-</span><span class="n">data</span> <span class="n">libgeos</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">cython</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="license-mit">
+<h1>License = MIT<a class="headerlink" href="#license-mit" title="Permalink to this headline">¶</a></h1>
+<p>lala is an open-source software originally written at the <a class="reference external" href="http://genomefoundry.org">Edinburgh Genome Foundry</a> by <a class="reference external" href="https://github.com/Zulko">Zulko</a> and <a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/lala">released on Github</a> under the MIT licence (¢ Edinburg Genome Foundry).</p>
+<p>Everyone is welcome to contribute !</p>
+<a href="https://twitter.com/share" class="twitter-share-button"
+data-text="lala - A Python module for automatic primer selection and sequencing validation" data-size="large" data-hashtags="Bioprinting">Tweet
+</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<iframe src="http://ghbtns.com/github-btn.html?user=Edinburgh-Genome-Foundry&repo=lala&type=watch&count=true&size=large"
+allowtransparency="true" frameborder="0" scrolling="0" width="152px" height="30px" margin-bottom="30px"></iframe><div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/basic_example.html">Basic example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/report_example.html">Report example</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ref/ref.html" class="btn btn-neutral float-right" title="lala Reference manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Edinburgh Genome Foundry.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

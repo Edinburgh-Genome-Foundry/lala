@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>lala Reference manual &mdash; lala 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/main.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="lala 0.1.0 documentation" href="../index.html"/>
+        <link rel="next" title="Basic example" href="../examples/basic_example.html"/>
+        <link rel="prev" title="Lala" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> lala
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Lala</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">lala Reference manual</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/basic_example.html">Basic example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/report_example.html">Report example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lala</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>lala Reference manual</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/ref/ref.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lala-reference-manual">
+<span id="reference"></span><h1>lala Reference manual<a class="headerlink" href="#lala-reference-manual" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="lala.WebLogs">
+<em class="property">class </em><code class="descclassname">lala.</code><code class="descname">WebLogs</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lala/WebLogs.html#WebLogs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lala.WebLogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom Pandas dataframe class for reading web logs.</p>
+<dl class="method">
+<dt id="lala.WebLogs.blacklist_ips">
+<code class="descname">blacklist_ips</code><span class="sig-paren">(</span><em>ips_blacklist</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lala/WebLogs.html#WebLogs.blacklist_ips"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lala.WebLogs.blacklist_ips" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new version of self minus the blacklisted ips.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lala.WebLogs.countries_colormap">
+<code class="descname">countries_colormap</code><span class="sig-paren">(</span><em>mini='auto'</em>, <em>maxi='auto'</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lala/WebLogs.html#WebLogs.countries_colormap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lala.WebLogs.countries_colormap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot a colormap of different countries, return the Matplotlib ax.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>country_values</strong></p>
+<blockquote>
+<div><p>A list of couples (coutry_name, value)</p>
+</div></blockquote>
+<p><strong>mini, maxi</strong></p>
+<blockquote>
+<div><p>Extreme values leading to read or white colors. Leave to auto to adjust
+this range to the values of country_values.</p>
+</div></blockquote>
+<p><strong>ax</strong></p>
+<blockquote class="last">
+<div><p>A Matplotlib ax with a representation of the world. If None, one is
+created automatically</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lala.WebLogs.entries_last">
+<code class="descname">entries_last</code><span class="sig-paren">(</span><em>num</em>, <em>duration</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lala/WebLogs.html#WebLogs.entries_last"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lala.WebLogs.entries_last" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the weblogs of the latest entries up to XX ago.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Filter out all entries more than 1 hour old</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">last_hour_weblogs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">entries_last</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Filter out all entries more than 5 days old</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">last_days_weblogs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">entries_last</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;days&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="lala.WebLogs.filter_by_text_search">
+<code class="descname">filter_by_text_search</code><span class="sig-paren">(</span><em>terms</em>, <em>are_in=None</em>, <em>not_in=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lala/WebLogs.html#WebLogs.filter_by_text_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lala.WebLogs.filter_by_text_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a filtered version of self based on searched terms.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="lala.WebLogs.from_nginx_weblogs">
+<em class="property">static </em><code class="descname">from_nginx_weblogs</code><span class="sig-paren">(</span><em>filepath=None</em>, <em>log_lines=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lala/WebLogs.html#WebLogs.from_nginx_weblogs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lala.WebLogs.from_nginx_weblogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dataframe of access log entries, from lines of NGINX logs.</p>
+<p>The log_lines are a list of strings, each representing one access
+logged by NGINX.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lala.WebLogs.identify_ips_domains">
+<code class="descname">identify_ips_domains</code><span class="sig-paren">(</span><em>logger='bar'</em>, <em>known_ips=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lala/WebLogs.html#WebLogs.identify_ips_domains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lala.WebLogs.identify_ips_domains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a <cite>ip_owner</cite> column to self.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lala.WebLogs.plot_geo_positions">
+<code class="descname">plot_geo_positions</code><span class="sig-paren">(</span><em>ax=None</em>, <em>country_colors=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lala/WebLogs.html#WebLogs.plot_geo_positions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lala.WebLogs.plot_geo_positions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot circles on a map around positions of the entries in the access log.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ax</strong></p>
+<blockquote class="last">
+<div><p>Matplotlib ax with a representation of the world.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lala.WebLogs.plot_piechart">
+<code class="descname">plot_piechart</code><span class="sig-paren">(</span><em>column</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lala/WebLogs.html#WebLogs.plot_piechart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lala.WebLogs.plot_piechart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot circles on a map around positions of the entries in the access log.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>column</strong></p>
+<blockquote>
+<div><p>name of the column to plot</p>
+</div></blockquote>
+<p><strong>ax</strong></p>
+<blockquote class="last">
+<div><p>Matplotlib ax on which to plot the pie chart. If None, one is created
+automatically.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lala.WebLogs.plot_timeline">
+<code class="descname">plot_timeline</code><span class="sig-paren">(</span><em>bins_per_day=4</em>, <em>ax=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lala/WebLogs.html#WebLogs.plot_timeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lala.WebLogs.plot_timeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot a time profile of access.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>bins_per_day</strong></p>
+<blockquote>
+<div><p>number of time points per day.</p>
+</div></blockquote>
+<p><strong>ax</strong></p>
+<blockquote class="last">
+<div><p>Matplotlib ax on which to plot the profile. If None, one is created
+automatically.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../examples/basic_example.html" class="btn btn-neutral float-right" title="Basic example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Lala" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Edinburgh Genome Foundry.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

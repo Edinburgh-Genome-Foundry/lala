@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Basic example &mdash; lala 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/main.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="lala 0.1.0 documentation" href="../index.html"/>
+        <link rel="next" title="Report example" href="report_example.html"/>
+        <link rel="prev" title="lala Reference manual" href="../ref/ref.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> lala
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Lala</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ref/ref.html">lala Reference manual</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report_example.html">Report example</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">lala</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Basic example</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/examples/basic_example.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="basic-example">
+<span id="id1"></span><h1>Basic example<a class="headerlink" href="#basic-example" title="Permalink to this headline">¶</a></h1>
+<p>An example showcasing some Lala routines.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">lala</span> <span class="k">import</span> <span class="n">WebLogs</span>
+
+<span class="c1"># LOAD ALL RECORDS TO ANALYSE AND AVAILABLE PRIMERS</span>
+<span class="n">logs_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;example_logs.txt&#39;</span><span class="p">)</span>
+<span class="n">weblogs</span><span class="p">,</span> <span class="n">errored_lines</span> <span class="o">=</span> <span class="n">WebLogs</span><span class="o">.</span><span class="n">from_nginx_weblogs</span><span class="p">(</span><span class="n">logs_path</span><span class="p">)</span>
+
+<span class="c1"># PLOT COUNTRIES PIE CHART</span>
+<span class="n">ax</span><span class="p">,</span> <span class="n">country_values</span> <span class="o">=</span> <span class="n">weblogs</span><span class="o">.</span><span class="n">plot_piechart</span><span class="p">(</span><span class="s1">&#39;country_name&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;basic_example_piechart.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+
+<span class="c1"># PLOT COUNTRIES MAP</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">weblogs</span><span class="o">.</span><span class="n">plot_geo_positions</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;basic_example_worldmap.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+
+<span class="c1"># PLOT UK CONNECTIONS TIMELINE</span>
+<span class="n">ag_entries</span> <span class="o">=</span> <span class="n">weblogs</span><span class="p">[</span><span class="n">weblogs</span><span class="o">.</span><span class="n">country_name</span> <span class="o">==</span> <span class="s1">&#39;Argentina&#39;</span><span class="p">]</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">ag_entries</span><span class="o">.</span><span class="n">plot_timeline</span><span class="p">(</span><span class="n">bins_per_day</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;basic_example_timeline.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+
+<span class="c1"># PLOT MOST FREQUENT VISITORS</span>
+<span class="n">most_frequent_visitors</span> <span class="o">=</span> <span class="n">weblogs</span><span class="o">.</span><span class="n">most_frequent_visitors</span><span class="p">(</span><span class="n">n_visitors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">weblogs</span><span class="o">.</span><span class="n">plot_most_frequent_visitors</span><span class="p">(</span><span class="n">n_visitors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;basic_example_frequent_visitors.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Outputs:</strong></p>
+<a class="reference internal image-reference" href="../_images/basic_example_piechart.png"><img alt="[piechart]" class="align-center" src="../_images/basic_example_piechart.png" style="width: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/basic_example_timeline.png"><img alt="[piechart]" class="align-center" src="../_images/basic_example_timeline.png" style="width: 550px;" /></a>
+<a class="reference internal image-reference" href="../_images/basic_example_worldmap.png"><img alt="[piechart]" class="align-center" src="../_images/basic_example_worldmap.png" style="width: 550px;" /></a>
+<a class="reference internal image-reference" href="../_images/basic_example_frequent_visitors.png"><img alt="[piechart]" class="align-center" src="../_images/basic_example_frequent_visitors.png" style="width: 350px;" /></a>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="report_example.html" class="btn btn-neutral float-right" title="Report example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../ref/ref.html" class="btn btn-neutral" title="lala Reference manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Edinburgh Genome Foundry.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
