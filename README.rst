@@ -18,7 +18,7 @@ Lala is a Python library for access log analysis. It provides a set of methods t
 .. raw:: html
 
     <p align="center">
-    <img alt="lala Logo" title="lala Logo" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/report.png" width="200">
+    <img alt="lala Logo" title="lala Logo" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/report.png" width="600">
     <br /><br />
     </p>
 
