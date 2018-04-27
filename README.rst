@@ -18,7 +18,7 @@ Lala is a Python library for access log analysis. It provides a set of methods t
 .. raw:: html
 
     <p align="center">
-    <img alt="lala Logo" title="lala Logo" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/report.jpeg" width="600">
+    <img alt="lala Logo" title="lala Logo" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/report.jpeg" width="550">
     <br /><br />
     </p>
 
@@ -34,6 +34,7 @@ Similarly, to fetch logs on a distant server (for which you have access keys)
 you would write:
 
 .. code:: python
+
     from lala import get_remote_file_content, WebLogs
 
     logs= lala.get_remote_file_content(

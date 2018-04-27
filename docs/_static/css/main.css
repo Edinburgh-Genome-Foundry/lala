@@ -7,7 +7,7 @@ body, h1, h2, h3 {
 }
 
 .wy-nav-side {
-    background-image: url("../images/pw_maze_pink.png");
+    background-image: url("../images/pw_maze_dark.png");
 }
 
 .wy-menu-vertical a {
@@ -20,7 +20,7 @@ body, h1, h2, h3 {
 
 .wy-side-nav-search, .wy-nav-top {
     background-color: #d0d0e7;
-    background-image: url("../images/pw_maze_pink.png");
+    background-image: url("../images/pw_maze_dark.png");
 }
 
 .edgeLabel {

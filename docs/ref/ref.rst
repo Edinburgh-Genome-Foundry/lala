@@ -3,7 +3,6 @@
 lala Reference manual
 ==========================
 
-.. toctree::
-   :maxdepth: 2
 
-   PrimerSelector
+.. autoclass:: lala.WebLogs
+   :members:

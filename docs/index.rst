@@ -1,53 +1,126 @@
 
-.. image:: _static/images/title.png
+.. image:: _static/images/logo.png
    :alt: [logo]
    :align: center
-   :width: 500px
+   :width: 200px
 
-lala
-=========
+Lala
+----
+
+.. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/lala.svg?branch=master
+  :target: https://travis-ci.org/Edinburgh-Genome-Foundry/lala
+  :alt: Travis CI build status
+
+.. image:: https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/lala/badge.svg?branch=master
+  :target: https://coveralls.io/github/Edinburgh-Genome-Foundry/lala?branch=master
 
 
 
- lala is a Python library to plan and analyze primer-based verification of DNA assemblies, using Sanger sequencing or verification PCR. It implements methods to design and select primers to ensure that the relevant assembly segments will be covered, and it
+Lala is a Python library for access log analysis. It provides a set of methods to retrieve, parse and analyze access logs (only from NGINX for now), and makes it easy to plot geo-localization or time-series data. Think of it as a simpler, Python-automatable version of Google Analytics, to make reports like this:
 
- Usage
- -----
+.. image:: _static/images/report.jpeg
+   :alt: [screenshot]
+   :align: center
+   :width: 550px
 
- **Primer selection**
+Usage
+-----
 
- The following code assumes that a file ``available_primers.fa`` contains the labels and sequences of all available primers in the lab, and that the assemblies to be sequence-verified have annotations indicating the zones that the sequencing should cover and zones where primer annealing should be avoided.
+.. code:: python
 
- .. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/annotated_genbank.png
-    :width: 600px
+   from lala import WebLogs
+   weblogs, errored_lines = WebLogs.from_nginx_weblogs('access_logs.txt')
 
- .. code:: python
+Similarly, to fetch logs on a distant server (for which you have access keys)
+you would write:
 
-     from lala import PrimerSelector, Primer, load_record
-     import os
+.. code:: python
 
-     # LOAD ASSEMBLIES RECORDS AND AVAILABLE PRIMERS
-     records = [load_record(file_path, linear=False)
-                for file_path in ['my_record_1.gb', 'my_record_2.gb'...]]
-     available_primers = Primer.list_from_fasta("example_primers.fa")
+   from lala import get_remote_file_content, WebLogs
 
-     # SELECT THE BEST PRIMERS
-     selector = PrimerSelector(tm_range=(55, 70), size_range=(16, 25))
-     selected_primers = selector.select_primers(records, available_primers)
+   logs= lala.get_remote_file_content(
+       host="cuba.genomefoundry.org", user='root',
+       filename='/var/log/nginx_cuba/access.log'
+   )
+   weblogs, errors = WebLogs.from_nginx_weblogs(logs.split('\n'))
 
-     # PLOT THE COVERAGE AND WRITE THE PRIMERS IN A SPREADSHEET
-     selector.plot_coverage(records, selected_primers, 'coverage.pdf')
-     selector.write_primers_table(selected_primers, 'selected_primers.csv')
+Now ``weblogs`` is a scpecial kind of `Pandas <https://pandas.pydata.org/>`_ dataframe where each row is one server access, with fields such as ``IP``, ``date``, ``referrer``, ``country_name``, etc.
 
- The returned ``selected_primers`` contains a list of lists of primers (one list for each construct). The PDF report returned looks like this:
+.. raw:: html
 
- .. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/annotated_primer_selection.png
-    :width: 600px
+   <p align="center">
+   <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/dataframe_example.png" width="800">
+   </p>
 
- **Sequencing Validation**
+The web logs can therefore be analyzed using any of Pandas' built-in filtering and plotting functions. The ``WebLogs`` class also provides additional methods which are particularly useful to analyse web logs, for instance to plot pie-charts:
 
- (documentation for this feature is coming soon)
+.. code:: python
 
+   ax, country_values = weblogs.plot_piechart('country_name')
+
+.. raw:: html
+
+   <p align="center">
+   <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_piechart.png" width="300">
+   </p>
+
+Next we plot the location (cities) providing the most connexions:
+
+.. code:: python
+
+   ax = weblogs.plot_geo_positions()
+
+.. raw:: html
+
+   <p align="center">
+   <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_worldmap.png" width="700">
+   </p>
+
+We can also restrict the entries to the UK, and plot a timeline of connexions:
+
+.. code:: python
+
+   uk_entries = weblogs[weblogs.country_name == 'United Kingdom']
+   ax = uk_entries.plot_timeline(bins_per_day=2)
+
+.. raw:: html
+
+   <p align="center">
+   <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_timeline.png" width="700">
+   </p>
+
+Here is how to get the visitors a list of visitors and visits, sort out the most frequent visitors, find their locations, and plot it all:
+
+.. code:: python
+
+   visitors = weblogs.visitors_and_visits()
+   visitors_locations = weblogs.visitors_locations()
+   frequent_visitors = weblogs.most_frequent_visitors(n_visitors=5)
+   ax = weblogs.plot_most_frequent_visitors(n_visitors=5)
+
+.. raw:: html
+
+   <p align="center">
+   <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_frequent_visitors.png" width="450">
+   </p>
+
+Lala can do more, such as identifying the domain name of the visitors, which can be used to filter out the robots of search engines:
+
+
+.. code:: python
+
+   weblogs.identify_ips_domains()
+   filtered_entries = weblogs.filter_by_text_search(
+       terms=['googlebot', 'spider.yandex', 'baidu', 'msnbot'],
+       not_in='domain'
+   )
+
+Lala also plays nicely with the `PDF Reports <https://github.com/Edinburgh-Genome-Foundry/pdf_reports>`_ library to let you define report templates such as `this one <https://github.com/Edinburgh-Genome-Foundry/lala/blob/master/examples/data/example_template.pug>`_ (written in Pug), and then generate `this PDF report <https://github.com/Edinburgh-Genome-Foundry/lala/blob/master/examples/report_example.pdf>`_ with the following code:
+
+.. code:: python
+
+   weblogs.write_report(template_path="path/to/template.pug",
+                        target="report_example.pdf")
 
 Installation
 -------------
@@ -56,26 +129,25 @@ You can install lala through PIP
 
 .. code::
 
-    sudo pip install lala
+   sudo pip install python-lala
 
 Alternatively, you can unzip the sources in a folder and type
 
 .. code::
 
-    sudo python setup.py install
+   sudo python setup.py install
 
-To be able to generate plots and reports, run
+For plotting maps you will need Cartopy which is not always easy to install - it may depend on your system. If you are on Ubuntu 16+, first install the dependencies with :
 
 .. code::
 
-    sudo pip install dna_features_viewer weasyprint
+   sudo apt-get install libproj-dev proj-bin proj-data libgeos-dev
+   sudo pip install cython
 
 License = MIT
 --------------
 
-lala is an open-source software originally written at the `Edinburgh Genome Foundry
-<http://edinburgh-genome-foundry.github.io/home.html>`_ by `Zulko <https://github.com/Zulko>`_
-and `released on Github <https://github.com/Edinburgh-Genome-Foundry/lala>`_ under the MIT licence (¢ Edinburg Genome Foundry).
+lala is an open-source software originally written at the `Edinburgh Genome Foundry <http://genomefoundry.org>`_ by `Zulko <https://github.com/Zulko>`_ and `released on Github <https://github.com/Edinburgh-Genome-Foundry/lala>`_ under the MIT licence (¢ Edinburg Genome Foundry).
 
 Everyone is welcome to contribute !
 
@@ -111,6 +183,7 @@ Everyone is welcome to contribute !
 .. toctree::
    :caption: Examples
 
-   examples/primer_selection_example
+   examples/basic_example
+   examples/report_example
 
 .. _PYPI: https://pypi.python.org/pypi/lala
