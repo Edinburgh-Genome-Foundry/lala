@@ -71,7 +71,7 @@ Next we plot the location (cities) providing the most connexions:
 .. raw:: html
 
     <p align="center">
-    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_worldmap.png" width="800">
+    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_worldmap.png" width="700">
     </p>
 
 We can also restrict the entries to the UK, and plot a timeline of connexions:
@@ -84,7 +84,7 @@ We can also restrict the entries to the UK, and plot a timeline of connexions:
 .. raw:: html
 
     <p align="center">
-    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_timeline.png" width="800">
+    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_timeline.png" width="700">
     </p>
 
 Here is how to get the visitors a list of visitors and visits, sort out the most frequent visitors, find their locations, and plot it all:
@@ -99,7 +99,7 @@ Here is how to get the visitors a list of visitors and visits, sort out the most
 .. raw:: html
 
     <p align="center">
-    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_frequent_visitors.png" width="600">
+    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_frequent_visitors.png" width="450">
     </p>
 
 Lala can do more, such as identifying the domain name of the visitors, which can be used to filter out the robots of search engines:
