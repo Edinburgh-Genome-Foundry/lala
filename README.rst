@@ -18,7 +18,7 @@ Lala is a Python library for access log analysis. It provides a set of methods t
 .. raw:: html
 
     <p align="center">
-    <img alt="lala Logo" title="lala Logo" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/report.png" width="600">
+    <img alt="lala Logo" title="lala Logo" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/report.jpeg" width="600">
     <br /><br />
     </p>
 
@@ -59,7 +59,7 @@ The web logs can therefore be analyzed using any of Pandas' built-in filtering a
 .. raw:: html
 
     <p align="center">
-    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_piechart.png" width="400">
+    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_piechart.png" width="300">
     </p>
 
 Next we plot the location (cities) providing the most connexions:
