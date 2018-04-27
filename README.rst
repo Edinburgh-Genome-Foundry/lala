@@ -13,7 +13,14 @@
    :target: https://coveralls.io/github/Edinburgh-Genome-Foundry/lala?branch=master
 
 
-Lala is a Python library for access log analysis (right now it only supports NGINX standard logs). It provides a set of methods to retrieve, parse and analyze access logs, in particular for plotting geo-localization or time-series data. Think of it as a poor nam's Google Analytics, that can help you vizualise the requests to your server.
+Lala is a Python library for access log analysis. It provides a set of methods to retrieve, parse and analyze access logs (only from NGINX for now), and makes it easy to plot geo-localization or time-series data. Think of it as a simpler, Python-automatable version of Google Analytics, to make reports like this:
+
+.. raw:: html
+
+    <p align="center">
+    <img alt="lala Logo" title="lala Logo" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/report.png" width="200">
+    <br /><br />
+    </p>
 
 Usage
 -----
@@ -80,7 +87,7 @@ We can also restrict the entries to the UK, and plot a timeline of connexions:
     <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_timeline.png" width="800">
     </p>
 
-Finally, here is how to get the visitors a list of visitors and visits, sort out the most frequent visitors, find their locations, and plot it all:
+Here is how to get the visitors a list of visitors and visits, sort out the most frequent visitors, find their locations, and plot it all:
 
 .. code:: python
 
@@ -105,6 +112,13 @@ Lala can do more, such as identifying the domain name of the visitors, which can
         terms=['googlebot', 'spider.yandex', 'baidu', 'msnbot'],
         not_in='domain'
     )
+
+Lala also plays nicely with the `PDF Reports <https://github.com/Edinburgh-Genome-Foundry/pdf_reports>`_ library to let you define report templates such as `this one <https://github.com/Edinburgh-Genome-Foundry/lala/blob/master/examples/data/example_template.pug>`_ (written in Pug), and then generate `this PDF report <https://github.com/Edinburgh-Genome-Foundry/lala/blob/master/examples/report_example.pdf>`_ with the following code:
+
+.. code:: python
+
+    weblogs.write_report(template_path="path/to/template.pug",
+                         target="report_example.pdf")
 
 Installation
 -------------

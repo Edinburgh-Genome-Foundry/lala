@@ -44,5 +44,4 @@ def test_template(tmpdir):
     sub_weblogs = weblogs[-50:]
     sub_weblogs.identify_ips_domains()
     target_path = os.path.join(str(tmpdir), "output.pdf")
-    # print(sub_weblogs.request)
     sub_weblogs.write_report(template_path=template_path, target=target_path)
