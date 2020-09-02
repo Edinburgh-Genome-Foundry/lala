@@ -1,9 +1,9 @@
-.. raw:: html
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/logo.png
+   :width: 200 px
+   :alt: alternate text
+   :align: center
 
-    <p align="center">
-    <img alt="lala Logo" title="lala Logo" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/logo.png" width="200">
-    <br /><br />
-    </p>
+|
 
 .. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/lala.svg?branch=master
    :target: https://travis-ci.org/Edinburgh-Genome-Foundry/lala
@@ -15,12 +15,11 @@
 
 Lala is a Python library for access log analysis. It provides a set of methods to retrieve, parse and analyze access logs (only from NGINX for now), and makes it easy to plot geo-localization or time-series data. Think of it as a simpler, Python-automatable version of Google Analytics, to make reports like this:
 
-.. raw:: html
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/report.jpeg
+   :width: 550 px
+   :alt: alternate text
+   :align: center
 
-    <p align="center">
-    <img alt="lala Logo" title="lala Logo" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/report.jpeg" width="550">
-    <br /><br />
-    </p>
 
 Usage
 -----
@@ -45,11 +44,10 @@ you would write:
 
 Now ``weblogs`` is a scpecial kind of `Pandas <https://pandas.pydata.org/>`_ dataframe where each row is one server access, with fields such as ``IP``, ``date``, ``referrer``, ``country_name``, etc.
 
-.. raw:: html
-
-    <p align="center">
-    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/dataframe_example.png" width="800">
-    </p>
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/docs/_static/images/dataframe_example.png
+   :width: 800 px
+   :alt: alternate text
+   :align: center
 
 The web logs can therefore be analyzed using any of Pandas' built-in filtering and plotting functions. The ``WebLogs`` class also provides additional methods which are particularly useful to analyse web logs, for instance to plot pie-charts:
 
@@ -57,11 +55,10 @@ The web logs can therefore be analyzed using any of Pandas' built-in filtering a
 
     ax, country_values = weblogs.plot_piechart('country_name')
 
-.. raw:: html
-
-    <p align="center">
-    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_piechart.png" width="300">
-    </p>
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_piechart.png
+   :width: 300 px
+   :alt: alternate text
+   :align: center
 
 Next we plot the location (cities) providing the most connexions:
 
@@ -69,11 +66,10 @@ Next we plot the location (cities) providing the most connexions:
 
     ax = weblogs.plot_geo_positions()
 
-.. raw:: html
-
-    <p align="center">
-    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_worldmap.png" width="700">
-    </p>
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_worldmap.png
+   :width: 700 px
+   :alt: alternate text
+   :align: center
 
 We can also restrict the entries to the UK, and plot a timeline of connexions:
 
@@ -82,11 +78,10 @@ We can also restrict the entries to the UK, and plot a timeline of connexions:
     uk_entries = weblogs[weblogs.country_name == 'United Kingdom']
     ax = uk_entries.plot_timeline(bins_per_day=2)
 
-.. raw:: html
-
-    <p align="center">
-    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_timeline.png" width="700">
-    </p>
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_timeline.png
+   :width: 700 px
+   :alt: alternate text
+   :align: center
 
 Here is how to get the visitors a list of visitors and visits, sort out the most frequent visitors, find their locations, and plot it all:
 
@@ -97,11 +92,10 @@ Here is how to get the visitors a list of visitors and visits, sort out the most
     frequent_visitors = weblogs.most_frequent_visitors(n_visitors=5)
     ax = weblogs.plot_most_frequent_visitors(n_visitors=5)
 
-.. raw:: html
-
-    <p align="center">
-    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_frequent_visitors.png" width="450">
-    </p>
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/lala/master/examples/basic_example_frequent_visitors.png
+   :width: 450 px
+   :alt: alternate text
+   :align: center
 
 Lala can do more, such as identifying the domain name of the visitors, which can be used to filter out the robots of search engines:
 
@@ -126,19 +120,19 @@ Installation
 
 You can install lala through PIP
 
-.. code::
+.. code:: bash
 
     sudo pip install python-lala
 
 Alternatively, you can unzip the sources in a folder and type
 
-.. code::
+.. code:: bash
 
     sudo python setup.py install
 
-For plotting maps you will need Cartopy which is not always easy to install - it may depend on your system. If you are on Ubuntu 16+, first install the dependencies with :
+For plotting maps you will need Cartopy which is not always easy to install - it may depend on your system. If you are on Ubuntu 16+, first install the dependencies with:
 
-.. code::
+.. code:: bash
 
     sudo apt-get install libproj-dev proj-bin proj-data libgeos-dev
     sudo pip install cython
@@ -146,6 +140,6 @@ For plotting maps you will need Cartopy which is not always easy to install - it
 License = MIT
 --------------
 
-lala is an open-source software originally written at the `Edinburgh Genome Foundry <http://genomefoundry.org>`_ by `Zulko <https://github.com/Zulko>`_ and `released on Github <https://github.com/Edinburgh-Genome-Foundry/lala>`_ under the MIT licence (¢ Edinburg Genome Foundry).
+lala is an open-source software originally written at the `Edinburgh Genome Foundry <http://genomefoundry.org>`_ by `Zulko <https://github.com/Zulko>`_ and `released on Github <https://github.com/Edinburgh-Genome-Foundry/lala>`_ under the MIT licence (Copyright 2018 Edinburgh Genome Foundry).
 
-Everyone is welcome to contribute !
+Everyone is welcome to contribute!
